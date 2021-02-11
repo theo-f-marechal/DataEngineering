@@ -19,7 +19,7 @@ object TP_MR {
    * Do this to check your answer after each exercise
    */
 
-  def giveMeHelloString : String = ???
+  def giveMeHelloString : String = "Hello"
 
   /**
    * 1) Find the last elements of a list.
@@ -112,11 +112,11 @@ object TP_MR {
   def aux_avg(acc : (Double, Int), el : Double) : (Double, Int) = (acc._1 + el, acc._2 + 1) 
 
   //TODO define average which takes an Iterator of Double in parameter
-  def average(values: Iterator[Double]): Option[Double] = (
+  def average(values: Iterator[Double]): Option[Double] = {
+  		if (values.isEmpty){ return None}
   		val tu = values.foldLeft((0.0, 0))((acc, el) => aux_avg(acc,el))
-  		return Some(val._1/val._2) )
-  }
-
+  		return Some(tu._1/tu._2)
+  		}
   /**
    * 7) Monoids and almost MapReduce
    *
@@ -163,7 +163,7 @@ object TP_MR {
    */
   import scala.util.Try
 
-  // we want to get an Map where the key is departement and the value an iterable of all the ratings of that departement
+  // we want to get a Map where the key is departement and the value an iterable of all the ratings of that departement
   def getRatingsByDepartement(lines: Iterable[String]): Map[String, Iterable[Double]] = {
     // drop CSV header
     val data: Iterable[String] = lines.drop(1)
@@ -171,7 +171,7 @@ object TP_MR {
     val rows: Iterable[Array[String]] =
       data.map { line =>
         //TODO cleaning line and separate fields by the comma character
-        val row: Array[String] = ???
+        val row: Array[String] = line.split(",")
 
         // cleansing: if fields are missing, we pad row with empty strings
         row.padTo(7, "")
