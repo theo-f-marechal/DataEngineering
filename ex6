@@ -1,0 +1,8 @@
+ def aux_avg(acc : (Double, Int), el : Double) : (Double, Int) = (acc._1 + el, acc._2 + 1) 
+
+  //TODO define average which takes an Iterator of Double in parameter
+  def average(values: Iterator[Double]): Option[Double] = {
+  		if (values.isEmpty){ return None}
+  		val tu = values.foldLeft((0.0, 0))((acc, el) => aux_avg(acc,el))
+  		return Some(tu._1/tu._2)
+      }
