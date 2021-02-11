@@ -1,0 +1,7 @@
+object mains 
+{
+    def main(args: Array[String]) 
+    {
+       
+    }
+}
