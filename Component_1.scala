@@ -1,15 +1,16 @@
 import scala.collection.mutable.ListBuffer
 
 
-object GenerateRandomReport
+object Component_1
 {
   val random = scala.util.Random
 
   def main(args: Array[String]): Unit = {
-    generateRandomReport()
+    val report = generateRandomReport()
+    print(report.toString)
   }
 
-  def generateRandomReport(): Unit = {
+  def generateRandomReport(): Report = {
     val id = random.nextInt(100)
     val position = (random.nextInt(50), random.nextInt(50))
     val citizens = new ListBuffer[Citizen]()
@@ -19,7 +20,7 @@ object GenerateRandomReport
     val wordsList = words.toList
     val citizenList = citizens.toList
     val report = new Report(id, position, citizenList, wordsList)
-    print(report.toString)
+    report
   }
 
   def createCitizen(range : Int, citizens : ListBuffer[Citizen]): Unit = {
@@ -47,5 +48,5 @@ class Citizen(var name : String, var peaceScore : Int) {
 
 class Report(var id : Int, var position : (Int,Int), var citizens : List[Citizen], var words : List[String]) {
   override def toString: String =
-    "Report \n id : " + id + "\n Position : " + position + "\n Citizens : " + citizens.toString + "\n Words heard : " + words
+    "Report \n id : " + id + "\n Position : " + position + "\n Citizens : " + citizens.toString + "\n Words heard : " + words + "\n"
 }
