@@ -33,6 +33,10 @@ object GenerateRandomReport
     else {createWord(range-1, words += random.alphanumeric.take(5 + random.nextInt(10-5 + 1)).mkString)}
   }
 
+  def storeMessage() : Unit = {
+
+  }
+
 }
 
 
